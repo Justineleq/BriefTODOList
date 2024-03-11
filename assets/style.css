@@ -1,0 +1,21 @@
+.list-group-item-action:hover {
+    background-color: lightgreen!important;
+}
+
+/* #form {
+    --bs-info-bg-subtle: #cff4fc!important;
+} */
+
+.rainbow-text {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 50px;
+	text-shadow: #A3A3A3 1px 1px 1px;
+}
+.rainbow-text .block-line > span {
+	display: inline-block;
+}
+
+.list-group-item {
+    margin: 0.3%;
+}
