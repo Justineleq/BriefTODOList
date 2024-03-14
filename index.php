@@ -13,7 +13,9 @@
     <title>ToDoList</title>
 </head>
 <body>
-    <?php include './inlcudes/navbar.php';  ?> 
+    <div>
+        <?php include './includes/navbar.php';  ?> 
+    </div>
     <div>
         <?php include './assets/title.php'; ?>
     </div>

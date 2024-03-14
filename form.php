@@ -2,7 +2,7 @@
 
 <form id='form' class="p-3 mb-2 bg-warning-subtle text-warning-emphasis rounded">
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Job to do" aria-label="Job to do" aria-describedby="button-addon2" id='jobName'>
+        <input type="text" class="form-control" placeholder="Job to do" aria-label="Job to do" aria-describedby="button-addon2" id='job'>
         </div>
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Description" aria-label="Description" aria-describedby="button-addon2" id='description'>
