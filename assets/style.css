@@ -1,3 +1,14 @@
+body {
+	font-family: "Dosis", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	}
+
+#strongArm { 
+	z-index: 10;
+	width: 30%;
+}
+
 .list-group-item-action:hover {
     background-color: lightgreen!important;
 }
@@ -7,7 +18,7 @@
 } */
 
 .rainbow-text {
-	font-family: Arial;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	font-weight: bold;
 	font-size: 50px;
 	text-shadow: #A3A3A3 1px 1px 1px;
