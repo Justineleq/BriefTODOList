@@ -1,8 +1,11 @@
 <?php
 
- include './index.php';
 
-if(!empty($_POST) && isset($_POST['firstName'], $_POST['lastName'],$_POST['username'], $_POST['email']))
+if(!empty (
+isset ($_POST['firstName']) &&
+isset ($_POST['lastName']) &&
+isset ($_POST['username']) && 
+isset ($_POST['email'])));
 ?>
 
 

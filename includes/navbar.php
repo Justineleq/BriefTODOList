@@ -7,8 +7,8 @@
     <img src="../assets/images/strongArm.jpg" alt="strongArmIcon" id='strongArm'>
   </div>
   <div>
-    <button type="button" class="btn btn-info m-2">Sign in</button>
-    <button type="button" class="btn btn-info m-2">Sign up</button>
+    <button type="button" id='signInBtn' class="btn btn-info m-2">Sign in</button>
+    <button type="button" id='signUpBtn' class="btn btn-info m-2">Sign up</button>
   </div>
 </nav>
  

@@ -7,7 +7,7 @@ let priority = document.getElementById('priority');
 let date = document.getElementById('date');
 
 // cancels the event if its cancelable.
-event.preventDefault();
+// event.preventDefault();
 
 console.log(job);
 console.log(description);
@@ -21,12 +21,14 @@ console.log(date);
         priority: priority,
         date: date,
     }
-console.log(task);
+console.log(newTask);
 
- 
+
  const request = new XMLHttpRequest();// create a new request,
-    request.open("POST", "./src/treatment/treatmentTask.php", true); //start request, treat it in treatment,
+    request.open("POST", "../src/treatments/treatmentTask.php", true); //start request, treat it in treatment,
+    
     request.setRequestHeader("content-type", "application/json");//indicates we're using Json format,
+    
     request.send(JSON.stringify(newTask)); //converts into Json string.
 
 request.onreadystatechange = () => {
@@ -36,6 +38,4 @@ request.onreadystatechange = () => {
   }
 };
 }
-
-
 document.getElementById('btnSubmit').addEventListener('click', addNewJob());
