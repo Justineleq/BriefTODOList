@@ -14,7 +14,7 @@
 </head>
 <body>
     <div>
-        <?php include './includes/navbar.php';  ?> 
+        <?php include './src/includes/navbar.php';  ?> 
     </div>
     <div>
         <?php 
@@ -25,6 +25,6 @@
 	<span class="block-line"><span><span style="color:#ff0000;">C</span><span style="color:#ff5500;">h</span><span style="color:#ffaa00;">o</span><span style="color:#ffff00;">o</span><span style="color:#aaff00;">s</span><span style="color:#55ff00;">e&nbsp;</span></span><span><span style="color:#00ff00;">y</span><span style="color:#00ff55;">o</span><span style="color:#00ffaa;">u</span><span style="color:#00ffff;">r&nbsp;</span></span><span><span style="color:#00aaff;">j</span><span style="color:#0055ff;">o</span><span style="color:#0000ff;">b&nbsp;</span></span><span><span style="color:#5500ff;">t</span><span style="color:#aa00ff;">o&nbsp;</span></span><span><span style="color:#ff00ff;">d</span><span style="color:#ff00aa;">o</span><span style="color:#ff0055;">!</span></span></span>
 </div>
     <?php include './components/form.php'; ?>
-    <script src="assets/script.js"></script>
+    <script src="assets/createTask.js"></script>
 </body>
 </html>

@@ -9,9 +9,9 @@
     </div>
 
     <select id='priority' class="form-select" aria-label="Default select example">
-        <option default value="1">Urgent</option>
-        <option value="2">Important</option>
-        <option value="3">Minor</option>
+        <option default value="1" id='urgent'>Urgent</option>
+        <option value="2" id='important'>Important</option>
+        <option value="3" id='minor'>Minor</option>
     </select>
     <div id='date' class="p-3">
     <label for="start">Start date:</label>

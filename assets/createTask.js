@@ -1,18 +1,25 @@
 function addNewJob(event) {
 // retrieve values.
-let form = document.getElementById('form');
-let job = document.getElementById('job').value;
-let description = document.getElementById('description').value;
-let priority = document.getElementById('priority');
-let date = document.getElementById('date');
+const newTaskadded = document.getElementById('newTaskAdded');
+
+const job = document.getElementById('job').value;
+const priority = document.getElementById('priority').value;
+const description = document.getElementById('description').value;
+const date = document.getElementById('start').value;
+
+const addJobHere = document.getElementById('addJobHere');
+const addPriorityHere = document.getElementById('addPriorityHere');
+const addDescriptionHere = document.getElementById('addDescriptionHere');
+const addDateHere = document.getElementById('addDateHere');
 
 // cancels the event if its cancelable.
-// event.preventDefault();
+event.preventDefault();
 
 console.log(job);
 console.log(description);
 console.log(priority);
 console.log(date);
+
 
 // the name and its property
     const newTask = {
@@ -21,21 +28,36 @@ console.log(date);
         priority: priority,
         date: date,
     }
-console.log(newTask);
+// console.log(newTask);
 
 
  const request = new XMLHttpRequest();// create a new request,
-    request.open("POST", "../src/treatments/treatmentTask.php", true); //start request, treat it in treatment,
+    request.open("POST", "../treatments/createTask.php", true); //start request, treat it in treatment,
+    //treatments\createTask.php
     
     request.setRequestHeader("content-type", "application/json");//indicates we're using Json format,
-    
-    request.send(JSON.stringify(newTask)); //converts into Json string.
 
-request.onreadystatechange = () => {
-  if (request.readyState === 4 && request.status === 200) {
-    // STUFF TO DO WHEN THE BACKEND RESPOND THAT EVERYTHING IS GOOD.
-   form.innerHTML += JSON.parse(request.newTask);
+    request.send(JSON.stringify(newTask))
+    
+    // request.send(JSON.stringify( {job: job,
+    //   description: description,
+    //   priority: priority,
+    //   date: date,})); //converts into Json string.
+
+    
+    request.onreadystatechange = () => {
+      if (request.readyState === 4 && request.status === 200) {
+        // STUFF TO DO WHEN THE BACKEND RESPOND THAT EVERYTHING IS GOOD.
+        // newTaskadded.innerHTML = newTask.responseText;
+        addJobHere.innerHTML = job;
+        addPriorityHere.innerHTML = priority;
+        addDescriptionHere.innerHTML = description;
+        addDateHere.innerHTML = date;
+   
+        console.log(request.status);
+      }
+    
+    };
+    // console.log(newTask);
   }
-};
-}
-document.getElementById('btnSubmit').addEventListener('click', addNewJob());
+ document.getElementById("btnSubmit").addEventListener("click", addNewJob);
