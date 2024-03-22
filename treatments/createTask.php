@@ -9,7 +9,7 @@ $decodedData = json_decode($data, true);
 
 if ($decodedData)
  {
-    $job = htmlspecialchars($decodedData['job']);
+    $name = htmlspecialchars($decodedData['name']);
     $description = htmlspecialchars($decodedData['description']);
     $priority = htmlspecialchars($decodedData['priority']);
     $date = htmlspecialchars($decodedData['date']);
@@ -18,16 +18,17 @@ if ($decodedData)
 
     $newTask = new Task (
         null,
-        $job,
+        $name,
         $description,
-        $priority,
-        $date
+        $date,
+        $priority
+      
     );
-  
-
+    var_dump($newTask);
     $taskRepo = new TaskRepo();
-
+    
     $taskRepo->create($newTask);
-
-    header('Location: ./../index.php');
+    
+   
+    // header('Location: ./../index.php');
 }

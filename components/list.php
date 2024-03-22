@@ -5,7 +5,7 @@
 
 <div class="list-group" id='taskList'>
     <button id='newTaskAdded' type="button" class="list-group-item list-group-item-action form-labelbadges d-flex justify-content-between">
-        <span class="badge rounded-pill text-bg-danger" id="addPriorityHere" value="" >Urgent</span> 
+        <span class="badge rounded-pill" id="addPriorityHere" value="" >Urgent</span> 
         <span id="addJobHere">Name of job</span>
         <span id="addDescriptionHere">Description</span>
         <span class='date' id="addDateHere"value="">date</span>

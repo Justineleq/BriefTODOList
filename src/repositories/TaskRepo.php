@@ -15,9 +15,8 @@ class TaskRepo extends DataBase
                 $task['id'],
                 $task['name'],
                 $task['description'],
-                $task['priority'],
                 $task['date'],
-    
+                $task['priority'],
             );
 
             $tasks[] = $newTasks;
@@ -26,43 +25,48 @@ class TaskRepo extends DataBase
         return $tasks;
     }
 
-    public function findById($taskId)
-    {
-        $request = 'SELECT * FROM task WHERE id = :id';
-
-        $query = $this->getDb()->prepare($request);
-
-        $query->execute([':id' => $taskId]);
-
-        $data = $query->fetch();
-
-        if ($data) {
-            $searchedTask = new Task(
-                $data['id'],
-                $data['name'],
-                $data['description'],
-                $data['priority'],
-                $data['date'],
-            );
-
-            return $searchedTask;
-        }
-    }
-
     public function create($newTask)
     {
-        $request = 'INSERT INTO todo_task (Name, Description, Id_priority, _Date) VALUES (:name, :description, :priority, :date)';
+        $request = 'INSERT INTO todo_task (Name, Description, _Date, Id_priority ) VALUES (:name, :description, :date, :priority)';
 
         $query = $this->getDb()->prepare($request);
 
+
         $query->execute([
-            'name' => 'Justine',
+            'name' => $newTask->getName(),
             'description' => $newTask->getDescription(),
-            'priority' => $newTask->getPriority(),
-            'date' => 'new DateTimeImmutable()'
+            'date' => $newTask->getDate(),
+            'priority' => $newTask->getPriority()
+            
           
         ]);
-    }
+    } 
+    
+    
+    // public function findById($taskId)
+    // {
+    //     $request = 'SELECT * FROM task WHERE id = :id';
+
+    //     $query = $this->getDb()->prepare($request);
+
+    //     $query->execute([':id' => $taskId]);
+
+    //     $data = $query->fetch();
+
+    //     if ($data) {
+    //         $searchedTask = new Task(
+    //             $data['id'],
+    //             $data['name'],
+    //             $data['description'],
+    //             $data['priority'],
+    //             $data['date'],
+    //         );
+
+    //         return $searchedTask;
+    //     }
+    // }
+
+
 
     // public function update($task)
     // {

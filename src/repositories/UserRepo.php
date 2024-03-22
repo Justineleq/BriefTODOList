@@ -27,69 +27,68 @@ class UserRepo extends Database
         return $users;
     }
 
-    public function findById($studentId)
+    public function findById($userId)
     {
-        $request = 'SELECT * FROM student WHERE id = :id';
+        $request = 'SELECT * FROM todo_users WHERE id = :id';
 
         $query = $this->getDb()->prepare($request);
 
-        $query->execute([':id' => $studentId]);
+        $query->execute([':id' => $userId]);
 
         $data = $query->fetch();
 
         if ($data) {
-            $searchedStudent = new Student(
+            $searchedUser = new User(
                 $data['id'],
                 $data['name'],
                 $data['surname'],
-                $data['birthdate'],
+                $data['password'],
                 $data['email'],
-                $data['department_id']
+           
             );
 
-            return $searchedStudent;
+            return $searchedUser;
         }
     }
 
-    public function create($newStudent)
+    public function create($newUser)
     {
-        $request = 'INSERT INTO student (name, surname, birthdate, email, department_id) VALUES (:name, :surname, :birthdate, :email, :department)';
+        $request = 'INSERT INTO todo_user (name, surname, email, password) VALUES (:name, :surname, :email, :password)';
 
         $query = $this->getDb()->prepare($request);
 
         $query->execute([
-            'name' => $newStudent->getName(),
-            'surname' => $newStudent->getSurname(),
-            'birthdate' => $newStudent->getBirthdate(),
-            'email' => $newStudent->getEmail(),
-            'department' => $newStudent->getDepartmentId(),
-        ]);
-    }
-
-    public function update($student)
-    {
-        $request = 'UPDATE student SET name = :name, surname = :surname, birthdate = :birthdate, email = :email, department_id = :department_id WHERE id = :id';
-
-        $query = $this->getDb()->prepare($request);
-
-        $query->execute([
-            'name' => $student->getName(),
-            'surname' => $student->getSurname(),
-            'birthdate' => $student->getBirthdate(),
-            'email' => $student->getEmail(),
-            'department_id' => $student->getDepartmentId(),
-            'id' => $student->getId(),
-        ]);
-    }
-
-    public function delete($studentId)
-    {
-        $request = 'DELETE FROM student WHERE id = :id';
-
-        $query = $this->getDb()->prepare($request);
-
-        $query->execute([
-            'id' => $studentId
+            'name' => $newUser->getName(),
+            'surname' => $newUser->getSurname(),
+            'birthdate' => $newUser->getBirthdate(),
+            'email' => $newUser->getEmail(),
+            'password' => $newUser->getPassword(),
         ]);
     }
 }
+//     public function update($user)
+//     {
+//         $request = 'UPDATE todo_user SET name = :name, surname = :surname, birthdate = :birthdate, email = :email, password = :password WHERE id = :id';
+
+//         $query = $this->getDb()->prepare($request);
+
+//         $query->execute([
+//             'name' => $user->getName(),
+//             'surname' => $user->getSurname(),
+//             'email' => $user->getEmail(),
+//             'password' => $user->getPassword(),
+//             'id' => $user->getId(),
+//         ]);
+//     }
+// }
+//     public function delete($studentId)
+//     {
+//         $request = 'DELETE FROM student WHERE id = :id';
+
+//         $query = $this->getDb()->prepare($request);
+
+//         $query->execute([
+//             'id' => $studentId
+//         ]);
+//     }
+// }
